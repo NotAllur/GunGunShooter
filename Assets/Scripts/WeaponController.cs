@@ -23,7 +23,12 @@ public class WeaponController : MonoBehaviour
         Transform target = TagTargeter("Enemy");
         if (target != transform)
         {
-            transform.LookAt(target.position + Vector3.up);
+            Vector3 direction = target.position - transform.position;
+            direction.y = 0;
+            float rotationSpeed = 100f;
+
+            Quaternion targetRotation = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
 
             if (timeSinceLastFire > rateOfFire)
             {
