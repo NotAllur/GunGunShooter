@@ -5,14 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
     void Start()
     {
-        //ta linijka powoduje, ¿e gamemanager bêdzie zawsze dostêpny nawet jeœli zmienicie scene
         DontDestroyOnLoad(this.gameObject);
     }
 
-    // Update is called once per frame
     void Update()
     {
 
