@@ -15,13 +15,12 @@ public class GameManager : MonoBehaviour
 
     }
 
-    //nowa gra
     public void NewGame()
     {
         SceneManager.LoadScene("Level1");
+        this.gameObject.SetActive(false);
     }
 
-    //wyjdz
     public void Quit()
     {
         Application.Quit();
