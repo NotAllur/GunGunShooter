@@ -12,6 +12,8 @@ public class WeaponController : MonoBehaviour
     public float rateOfFire = 1;
     float timeSinceLastFire = 0;
     public float projectileForce = 20;
+    public AudioSource bang;
+
 
     void Start()
     {
@@ -36,6 +38,7 @@ public class WeaponController : MonoBehaviour
                 Rigidbody projectileRB = projectile.GetComponent<Rigidbody>();
                 projectileRB.AddForce(projectileSpawn.transform.forward * projectileForce, ForceMode.VelocityChange);
                 timeSinceLastFire = 0;
+                bang.Play();
                 Destroy(projectile, 5);
             }
             else
